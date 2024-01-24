@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.5
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: jagadeeswaran8848@gmail.com
+author_name: jaga
+has_binder: true
+has_settings: false
+kind: frontend
+labextension_name: my_first_extension
+project_short_description: show a random images of sapce related things
+python_name: my_first_extension
+repository: https://github.com/jagadeeswaran8848/my_first_extension
+test: true
+
