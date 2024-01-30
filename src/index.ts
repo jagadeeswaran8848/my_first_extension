@@ -104,7 +104,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     app.restored.then(() => {
       app.commands.execute('launcher:add', {
         command,
-        category: 'Tutorial',
+        category: 'Other',
         rank: 1,  // Adjust the rank as needed
       });
     });
