@@ -6,6 +6,7 @@ import {
 import { ICommandPalette, MainAreaWidget } from '@jupyterlab/apputils';
 
 import { Widget } from '@lumino/widgets';
+
 interface APODResponse {
   copyright: string;
   date: string;
@@ -13,7 +14,7 @@ interface APODResponse {
   media_type: 'video' | 'image';
   title: string;
   url: string;
-};
+}
 
 /**
  * Initialization data for the my_first_extension extension.
@@ -40,8 +41,8 @@ const plugin: JupyterFrontEndPlugin<void> = {
       let img = document.createElement('img');
       content.node.appendChild(img);
       
-    let summary = document.createElement('p');
-    content.node.appendChild(summary);
+      let summary = document.createElement('p');
+      content.node.appendChild(summary);
       // Get a random date string in YYYY-MM-DD format
       function randomDate() {
         const start = new Date(2010, 1, 1);
@@ -75,7 +76,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
         }
       }
       return widget;
-    }
+    };
     let widget = await newWidget();
 
     // Add an application command
@@ -98,6 +99,15 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     // Add the command to the palette.
     palette.addItem({ command, category: 'Tutorial' });
+
+    // Add the command to the launcher
+    app.restored.then(() => {
+      app.commands.execute('launcher:add', {
+        command,
+        category: 'Tutorial',
+        rank: 1,  // Adjust the rank as needed
+      });
+    });
   }
 };
 
